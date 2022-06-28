@@ -24,8 +24,9 @@ export const LeftContainer = styled.div`
 
 export const RightContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin-right: 30px;
   width: 30%;
   @media (min-width: 768px) {
     width: 300px;

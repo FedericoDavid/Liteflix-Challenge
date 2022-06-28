@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 export const ParagraphContainer = styled.p`
-  font-size: 28px;
-  line-height: 28px;
+  font-size: 30px;
+  line-height: 34px;
   letter-spacing: 4px;
-  font-weight: 700;
   text-transform: uppercase;
   color: #64eebc;
   cursor: pointer;
+  margin-left: 35px;
 
   &:hover {
     transform: scale(1.2);
