@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ParagraphContainer = styled.p`
-  font-size: 30px;
+  font-size: 34px;
   line-height: 34px;
   letter-spacing: 4px;
   text-transform: uppercase;

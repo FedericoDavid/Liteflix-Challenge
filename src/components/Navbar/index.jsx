@@ -15,21 +15,21 @@ const Navbar = () => {
   const [isMobile] = useMediaQuery('(min-width: 768px)');
 
   return (
-    <Container style={{ background: 'red' }}>
+    <Container>
       <LeftContainer>
         {!isMobile ? (
-          <Icon as={HiOutlineMenuAlt2} width={7} height={14} color='white' />
+          <Icon as={HiOutlineMenuAlt2} width={7} height={14} color="white" />
         ) : (
           <Button
             leftIcon={<AiOutlinePlus size={21} />}
-            colorScheme='whiteAlpha'
-            variant='ghost'
-            size='md'
-            textTransform='uppercase'
-            fontSize='18px'
-            fontWeight='normal'
-            letterSpacing='4px'
-            _hover={{ transform: 'scale(1.2)', transition: '0.6s' }}
+            colorScheme="whiteAlpha"
+            variant="ghost"
+            size="md"
+            textTransform="uppercase"
+            fontSize="18px"
+            fontWeight="normal"
+            letterSpacing="4px"
+            _hover={{ transform: "scale(1.1)", transition: "0.6s" }}
           >
             Agregar película
           </Button>
@@ -43,19 +43,19 @@ const Navbar = () => {
               as={HiOutlineMenuAlt3}
               width={25}
               height={14}
-              color='white'
-              _hover={{ transform: 'scale(1.2)', transition: '0.6s' }}
+              color="white"
+              _hover={{ transform: "scale(1.2)", transition: "0.6s" }}
             />
             <Icon
               as={VscBellDot}
               width={25}
               height={14}
-              color='white'
-              _hover={{ transform: 'scale(1.2)', transition: '0.6s' }}
+              color="white"
+              _hover={{ transform: "scale(1.2)", transition: "0.6s" }}
             />
           </>
         )}
-        <Avatar size='sm' name='Profile Picture' src={profilePicture} />
+        <Avatar size="sm" name="Profile Picture" src={profilePicture} />
       </RightContainer>
     </Container>
   );
