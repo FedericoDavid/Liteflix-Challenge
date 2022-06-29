@@ -8,10 +8,11 @@ export const ParagraphContainer = styled.p`
   color: #64eebc;
   cursor: pointer;
   margin-left: 35px;
-
-  &:hover {
-    transform: scale(1.2);
-    transition-duration: 0.6s;
+  @media (min-width: 768px) {
+    &:hover {
+      transform: scale(1.2);
+      transition-duration: 0.6s;
+    }
   }
 `;
 

@@ -18,7 +18,8 @@ export const LeftContainer = styled.div`
   width: 70%;
   @media (min-width: 768px) {
     justify-content: space-evenly;
-    width: 40%;
+    width: 30%;
+    flex-direction: row-reverse;
   }
 `;
 
@@ -26,9 +27,9 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-right: 30px;
-  width: 30%;
+  width: 33%;
   @media (min-width: 768px) {
-    width: 300px;
+    width: 200px;
+    margin-right: 103px;
   }
 `;
