@@ -13,9 +13,10 @@ export const Container = styled.div`
     background-size: cover;
     min-height: 100vh;
     background-position: 50% 15%;
-    animation: focus 2.5s ease-out;
-    -webkit-animation: focus 2.5s ease-out;
+    animation: focus 2s ease-out;
+    -webkit-animation: focus 2s ease-out;
   }
+
   @keyframes focus {
     0% {
       transform: scale(1.2);
@@ -34,9 +35,9 @@ export const Container = styled.div`
   }
 `;
 
-export const Main = styled.main`
+export const HeroContainer = styled.main`
   width: 100%;
-  margin: 70px auto 0px;
+  margin: 75px 0px;
 
   @media (min-width: 768px) {
     margin: 0 30px;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Spinner, useToast } from "@chakra-ui/react";
 
-import { Container } from "./styles/home";
+import { Container, HeroContainer } from "./styles/home";
 import Navbar from "../../components/Navbar";
+import Hero from "../../components/Hero";
 
 const Home = () => {
   const [topMovie, setTopMovie] = useState([]);
@@ -57,6 +58,9 @@ const Home = () => {
   return (
     <Container style={getBackgroundStyle()}>
       <Navbar />
+      <HeroContainer>
+        <Hero title={topMovie?.original_title} />
+      </HeroContainer>
     </Container>
   );
 };

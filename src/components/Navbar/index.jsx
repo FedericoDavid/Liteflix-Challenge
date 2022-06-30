@@ -1,18 +1,16 @@
 import React from 'react';
-import { useMediaQuery } from '@chakra-ui/react';
-import { AiOutlinePlus } from 'react-icons/ai';
-import { HiOutlineMenuAlt2, HiOutlineMenuAlt3 } from 'react-icons/hi';
-import { VscBellDot } from 'react-icons/vsc';
-import { Button, Icon } from '@chakra-ui/react';
-import { Avatar } from '@chakra-ui/react';
+import { Button, Icon, Avatar, useMediaQuery } from "@chakra-ui/react";
+import { AiOutlinePlus } from "react-icons/ai";
+import { HiOutlineMenuAlt2, HiOutlineMenuAlt3 } from "react-icons/hi";
+import { VscBellDot } from "react-icons/vsc";
 
-import { Container, LeftContainer, RightContainer } from './styles/navbar';
-import Logo from '../Logo';
+import { Container, LeftContainer, RightContainer } from "./styles/navbar";
+import Logo from "../Logo";
 
-import profilePicture from '../../assets/default-profile-picture.png';
+import profilePicture from "../../assets/default-profile-picture.png";
 
 const Navbar = () => {
-  const [isMobile] = useMediaQuery('(min-width: 768px)');
+  const [isMobile] = useMediaQuery("(min-width: 768px)");
 
   return (
     <Container>
@@ -21,14 +19,14 @@ const Navbar = () => {
           <Icon as={HiOutlineMenuAlt2} width={7} height={14} color="white" />
         ) : (
           <Button
-            leftIcon={<AiOutlinePlus size={21} />}
-            colorScheme="whiteAlpha"
+            leftIcon={<AiOutlinePlus size={20} />}
             variant="ghost"
             size="md"
             textTransform="uppercase"
             fontSize="18px"
             fontWeight="normal"
             letterSpacing="4px"
+            marginLeft="64px"
             _hover={{ transform: "scale(1.1)", transition: "0.6s" }}
           >
             Agregar película
