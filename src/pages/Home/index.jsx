@@ -4,6 +4,7 @@ import { Spinner, useToast } from "@chakra-ui/react";
 import { Container, HeroContainer } from "./styles/home";
 import Navbar from "../../components/Navbar";
 import Hero from "../../components/Hero";
+import SideMovies from "../../components/SideMovies";
 
 const Home = () => {
   const [topMovie, setTopMovie] = useState([]);
@@ -60,6 +61,7 @@ const Home = () => {
       <Navbar />
       <HeroContainer>
         <Hero title={topMovie?.original_title} />
+        <SideMovies />
       </HeroContainer>
     </Container>
   );
