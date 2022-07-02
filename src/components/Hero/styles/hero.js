@@ -23,14 +23,14 @@ export const SubTitle = styled.p`
   color: #fff;
   transform: uppercase;
   font-weight: normal;
-  margin-top: 4.5rem;
-  margin-bottom: 1rem;
+  margin-top: 72px;
+  margin-bottom: 16px;
 
   @media (min-width: 768px) {
     text-align: left;
-    margin-top: 8.5rem;
-    margin-bottom: 0.6rem;
-    margin-left: 5rem;
+    margin-top: 136px;
+    margin-bottom: 10px;
+    margin-left: 80px;
     animation: moveDown 1s ease-out;
   }
 
@@ -69,7 +69,7 @@ export const MainTitle = styled.h1`
   @media (min-width: 768px) {
     font-size: 120px;
     text-align: left;
-    margin-left: 5rem;
+    margin-left: 80px;
     letter-spacing: 16px;
     line-height: 85px;
     animation: moveLeft 1s ease-in;
@@ -100,14 +100,14 @@ export const ButtonsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 16px;
   animation: moveUp 1s ease-in;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-end;
-    margin-left: 5rem;
+    margin-left: 80px;
   }
 
   @keyframes moveUp {

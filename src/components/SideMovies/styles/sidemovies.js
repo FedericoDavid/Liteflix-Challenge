@@ -19,6 +19,7 @@ export const SelectContainer = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
+
   @media (min-width: 768px) {
     margin-top: 40px;
     height: 18px

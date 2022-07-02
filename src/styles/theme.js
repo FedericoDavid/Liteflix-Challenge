@@ -9,10 +9,9 @@ const theme = extendTheme({
     global: {
       // styles for the `body`
       body: {
-        bg: '#000',
+        bg: "#000",
         margin: 0,
-        color: 'white',
-        overflow: 'hidden',
+        color: "white",
       },
     },
   },

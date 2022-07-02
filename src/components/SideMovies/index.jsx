@@ -3,6 +3,7 @@ import { Select, Spinner, Text } from '@chakra-ui/react';
 import { FiChevronDown } from 'react-icons/fi';
 
 import { Container, SelectContainer } from './styles/sidemovies';
+import CardMovie from "../CardMovie";
 
 const SideMovies = () => {
   const defaultCategoryId = 1;
@@ -39,7 +40,12 @@ const SideMovies = () => {
 
   if (isLoading) return <Spinner />;
 
-  return <Container>{renderSelectCategory()}</Container>;
+  return (
+    <Container>
+      {renderSelectCategory()}
+      <CardMovie />
+    </Container>
+  );
 };
 
 export default SideMovies;
