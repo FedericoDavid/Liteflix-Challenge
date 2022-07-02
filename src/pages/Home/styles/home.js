@@ -37,10 +37,10 @@ export const Container = styled.div`
 
 export const HeroContainer = styled.main`
   width: 100%;
-  margin: 75px 0px;
+  margin: 50px auto 0px;
 
   @media (min-width: 768px) {
-    margin: 0 30px;
+    margin: 0 25px;
     display: grid;
     grid-template-columns: 3fr 1fr;
     column-gap: 2rem;

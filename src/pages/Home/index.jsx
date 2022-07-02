@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Spinner, useToast } from "@chakra-ui/react";
+import React, { useState, useEffect } from 'react';
+import { Spinner, useToast } from '@chakra-ui/react';
 
-import { Container, HeroContainer } from "./styles/home";
-import Navbar from "../../components/Navbar";
-import Hero from "../../components/Hero";
-import SideMovies from "../../components/SideMovies";
+import { Container, HeroContainer } from './styles/home';
+import Navbar from '../../components/Navbar';
+import Hero from '../../components/Hero';
+import SideMovies from '../../components/SideMovies';
 
 const Home = () => {
   const [topMovie, setTopMovie] = useState([]);
@@ -15,8 +15,7 @@ const Home = () => {
   const getTopMovie = async () => {
     setIsLoading(true);
 
-    const url =
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20";
+    const url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=6f26fd536dd6192ec8a57e94141f8b20';
 
     try {
       const res = await fetch(url);
@@ -27,15 +26,15 @@ const Home = () => {
       setIsLoading(false);
     } catch (e) {
       toast({
-        title: "Ups! Something went wrong.",
-        description: "Please try again",
-        status: "error",
+        title: 'Ups! Something went wrong.',
+        description: 'Please try again',
+        status: 'error',
         duration: 4000,
         isClosable: true,
-        variant: "left-accent",
+        variant: 'left-accent',
       });
 
-      console.log(`Error: ${e}`);
+      console.error(e);
       setIsLoading(false);
     }
   };
@@ -49,12 +48,12 @@ const Home = () => {
 
     return topMovie?.poster_path
       ? {
-          backgroundImage: `linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%), url(${urlImage})`,
+          backgroundImage: `linear-gradient(to bottom, rgb(11 11 11 / 60%), rgb(13 13 13 / 1%)), url(${urlImage})`,
         }
-      : { background: "#000" };
+      : { background: '#000' };
   };
 
-  if (isLoading) return <Spinner size="xl" />;
+  if (isLoading) return <Spinner size='xl' />;
 
   return (
     <Container style={getBackgroundStyle()}>

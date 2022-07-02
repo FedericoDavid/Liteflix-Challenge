@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 `;
 
 export const SubTitle = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   line-height: 22px;
   margin: 0;
@@ -23,7 +23,8 @@ export const SubTitle = styled.p`
   color: #fff;
   transform: uppercase;
   font-weight: normal;
-  margin-top: 5rem;
+  margin-top: 4.5rem;
+  margin-bottom: 1rem;
 
   @media (min-width: 768px) {
     text-align: left;
@@ -57,16 +58,16 @@ export const MainTitleContainer = styled.div`
 
 export const MainTitle = styled.h1`
   margin: 0;
-  font-size: 40px;
+  font-size: 76px;
   text-transform: uppercase;
   letter-spacing: 12px;
   font-weight: normal;
   color: #64eebc;
   text-align: center;
-  line-height: 50px;
+  line-height: 65px;
 
   @media (min-width: 768px) {
-    font-size: 76px;
+    font-size: 120px;
     text-align: left;
     margin-left: 5rem;
     letter-spacing: 16px;

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 100%;
@@ -15,13 +15,12 @@ export const Container = styled.div`
 `;
 
 export const SelectContainer = styled.div`
-  width: 100%;
+  width: 160px;
   display: flex;
   justify-content: center;
-
+  margin: auto;
   @media (min-width: 768px) {
-    margin-top: 50px;
-    width: 150px;
+    margin-top: 40px;
     height: 18px
     display: flex;
     align-items: center;
