@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar';
 import Hero from '../../components/Hero';
 import SideMovies from '../../components/SideMovies';
 
-const Home = () => {
+const Home = ({ popularMovie, setPopularMovie, myMovies }) => {
   const [topMovie, setTopMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -60,7 +60,7 @@ const Home = () => {
       <Navbar />
       <HeroContainer>
         <Hero title={topMovie?.original_title} />
-        <SideMovies />
+        <SideMovies popularMovie={popularMovie} setPopularMovie={setPopularMovie} />
       </HeroContainer>
     </Container>
   );
