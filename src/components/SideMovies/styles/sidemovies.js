@@ -18,7 +18,7 @@ export const SelectContainer = styled.div`
   width: 160px;
   display: flex;
   justify-content: center;
-  margin: auto;
+  margin: 50px auto 23px auto;
 
   @media (min-width: 768px) {
     margin-top: 40px;

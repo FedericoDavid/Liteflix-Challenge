@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 395px;
   background: linear-gradient(180deg, rgba(36, 36, 36, 0) 0%, #242424 100%);
 
   @media (min-width: 768px) {
@@ -71,7 +70,7 @@ export const MainTitle = styled.h1`
     text-align: left;
     margin-left: 80px;
     letter-spacing: 16px;
-    line-height: 85px;
+    line-height: 90px;
     animation: moveLeft 1s ease-in;
   }
 

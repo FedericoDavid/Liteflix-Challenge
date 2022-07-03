@@ -67,7 +67,16 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
   return (
     <Container>
       {renderSelectCategory()}
-      <CardMovie />
+      <>
+        {popularMovie?.map((movie) => (
+          <CardMovie
+            key={movie.id}
+            movie={movie}
+            categoryId={categoryId}
+            defaultCategoryId={defaultCategoryId}
+          />
+        ))}
+      </>
     </Container>
   );
 };
