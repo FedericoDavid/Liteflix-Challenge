@@ -104,11 +104,11 @@ export const ReleaseDate = styled.p`
   font-size: 14px;
   text-align: right;
   letter-spacing: 2px;
-  padding-left: 235px;
+  padding-left: 230px;
   color: "#fff";
 
   @media (min-width: 768px) {
-    padding-left: 118px;
+    padding-left: 110px;
   }
 `;
 

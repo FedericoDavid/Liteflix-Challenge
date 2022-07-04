@@ -16,20 +16,18 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
     { id: 2, name: 'Mis películas' },
   ];
 
-  const getPopularMovies = () => {
+  const getPopularMovies = async () => {
     setIsLoading(true);
-    const url = 'https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20';
+
+    const url =
+      "https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20";
 
     if (categoryId === defaultCategoryId) {
-      const getAPIData = async () => {
-        const res = await fetch(url);
-        const { results } = await res?.json();
-        const sortedMovies = results.sort(() => 0.5 - Math.random()).slice(0, 4);
+      const res = await fetch(url);
+      const { results } = await res?.json();
+      const sortedMovies = results.sort(() => 0.5 - Math.random()).slice(0, 4);
 
-        setPopularMovie(sortedMovies);
-      };
-
-      getAPIData();
+      setPopularMovie(sortedMovies);
     } else {
       setPopularMovie(myMovies);
     }
@@ -40,21 +38,25 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
     getPopularMovies();
   }, [categoryId]);
 
-  const renderSelectCategory = () => (
+  const SelectCategory = () => (
     <SelectContainer>
-      <Text fontSize='20px' paddingRight='10px'>
+      <Text fontSize="20px" paddingRight="10px">
         Ver:
       </Text>
       <Select
         icon={<FiChevronDown />}
-        variant='unstyled'
-        fontSize='20px'
-        transform='uppercase'
+        variant="unstyled"
+        fontSize="20px"
+        transform="uppercase"
         value={categoryId}
         onChange={({ value }) => setCategoryId(value)}
       >
         {categoryOptions.map((c) => (
-          <option style={{ background: '#242424', border: 'none' }} key={c.id} value={c.id}>
+          <option
+            style={{ background: "#242424", border: "none" }}
+            key={c.id}
+            value={c.id}
+          >
             {c.name}
           </option>
         ))}
@@ -66,7 +68,7 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
 
   return (
     <Container>
-      {renderSelectCategory()}
+      <SelectCategory />
       <>
         {popularMovie?.map((movie) => (
           <CardMovie

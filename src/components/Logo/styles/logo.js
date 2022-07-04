@@ -7,7 +7,7 @@ export const ParagraphContainer = styled.p`
   text-transform: uppercase;
   color: #64eebc;
   cursor: pointer;
-  margin-left: 35px;
+
   @media (min-width: 768px) {
     &:hover {
       transform: scale(1.2);

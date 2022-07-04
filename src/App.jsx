@@ -7,13 +7,13 @@ const App = () => {
   const [myMovies, setMyMovies] = useState([]);
 
   useEffect(() => {
-    const storageMovies = JSON.parse(localStorage.getItem("ownMovies")) ?? [];
+    const storageMovies = JSON.parse(localStorage.getItem("OwnMovies")) ?? [];
 
     setMyMovies(storageMovies);
   }, []);
 
   useEffect(
-    () => localStorage.setItem("MyMovies", JSON.stringify(myMovies)),
+    () => localStorage.setItem("OwnMovies", JSON.stringify(myMovies)),
     [myMovies]
   );
 

@@ -17,11 +17,11 @@ import {
 } from "./styles/cardMovie";
 import ImageOverlay from "../ImageOverlay";
 
-const CardMovie = ({ movie, categoryId, defaultCategoryId, isLoading }) => {
+const CardMovie = ({ movie, categoryId, defaultCategoryId }) => {
   const { backdrop_path, original_title, vote_average, release_date } = movie;
   const [isMobile] = useMediaQuery("(min-width: 768px)");
 
-  const renderDetailMovie = () => (
+  const HoverDetails = () => (
     <>
       <DetailsHeader>
         <Icon as={VscPlayCircle} height="26px" width="26px" />
@@ -32,7 +32,7 @@ const CardMovie = ({ movie, categoryId, defaultCategoryId, isLoading }) => {
         <RangeValoration>
           {vote_average.toString().replace(".", ",")}
         </RangeValoration>
-        <ReleaseDate>{dayjs(release_date).format("YY")}</ReleaseDate>
+        <ReleaseDate>{dayjs(release_date).format("YYYY")}</ReleaseDate>
       </DetailsFooter>
     </>
   );
@@ -49,7 +49,7 @@ const CardMovie = ({ movie, categoryId, defaultCategoryId, isLoading }) => {
         width={isMobile ? "220px" : "350px"}
         height={isMobile ? "123px" : "194px"}
       >
-        {renderDetailMovie()}
+        <HoverDetails />
       </ImageOverlay>
       <HoverContainer>
         <PlayBtnContainer>
