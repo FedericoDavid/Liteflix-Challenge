@@ -31,15 +31,15 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
   const [isError, setIsError] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [formValues, setFormValues] = useState({
-    original_title: "",
-    backdrop_path: "",
+    original_title: '',
+    backdrop_path: '',
   });
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
-      "image/png": [".png"],
-      "image/jpeg": [".jpg", ".jpeg"],
+      'image/png': ['.png'],
+      'image/jpeg': ['.jpg', '.jpeg'],
     },
     onDrop: (acceptFiles) => {
       const file = acceptFiles[0];
@@ -84,35 +84,36 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     const { original_title, backdrop_path } = formValues;
-    if (original_title === "" || backdrop_path === "") {
-      return;
-    } else {
-      console.log(original_title, backdrop_path, "ot bp");
-      const movie = {
-        original_title,
-        backdrop_path,
-      };
 
-      movie.id = generateID();
-      setMyMovies && setMyMovies([...myMovies, movie]);
+    if (original_title === '' || backdrop_path === '') return;
 
-      setOnSuccess(true);
-      console.log(myMovies, movie, "success");
-    }
+    console.log(original_title, backdrop_path, 'ot bp');
+
+    const movie = {
+      original_title,
+      backdrop_path,
+    };
+
+    console.log(myMovies);
+    movie.id = generateID();
+    localStorage.setItem('OwnMovies', JSON.stringify(movie));
+
+    setOnSuccess(true);
+
+    console.log(myMovies, movie, 'success');
   };
 
   const progressText = (label, color, align, top, bottom) => (
     <Text
-      color={color ?? "#fff"}
+      color={color ?? '#fff'}
       textAlign={align}
-      fontSize="18px"
-      fontWeight="normal"
+      fontSize='18px'
+      fontWeight='normal'
       mb={bottom}
       mt={top}
-      lineHeight="16px"
-      letterSpacing="4px"
+      lineHeight='16px'
+      letterSpacing='4px'
     >
       {label}
     </Text>
@@ -123,14 +124,14 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
       return (
         <Button
           leftIcon={<AiOutlinePlus size={20} />}
-          variant="ghost"
-          size="md"
-          textTransform="uppercase"
-          fontSize="18px"
-          fontWeight="normal"
-          letterSpacing="4px"
-          marginLeft="64px"
-          _hover={{ transform: "scale(1.1)", transition: "0.6s" }}
+          variant='ghost'
+          size='md'
+          textTransform='uppercase'
+          fontSize='18px'
+          fontWeight='normal'
+          letterSpacing='4px'
+          marginLeft='64px'
+          _hover={{ transform: 'scale(1.1)', transition: '0.6s' }}
           onClick={onOpen}
         >
           Agregar película
@@ -139,86 +140,76 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
     }
 
     return (
-      <ListItem
-        style={{ margin: "50px auto" }}
-        onClick={onOpen}
-        cursor="pointer"
-      >
-        <ListIcon as={AiOutlinePlus} color="white" mb="4px" />
+      <ListItem style={{ margin: '50px auto' }} onClick={onOpen} cursor='pointer'>
+        <ListIcon as={AiOutlinePlus} color='white' mb='4px' />
         Agregar Pelicula
       </ListItem>
     );
   };
 
   const renderSuccessMessage = () => (
-    <Box textAlign="center">
+    <Box textAlign='center'>
       {isNavbar && <Logo />}
-      <Text mt="190px" fontSize="24px" lineHeight="26px" letterSpacing="4px">
+      <Text mt='190px' fontSize='24px' lineHeight='26px' letterSpacing='4px'>
         ¡Felicitaciones!
       </Text>
-      <Text mt="32px" fontSize="20px" lineHeight="32px" letterSpacing="4px">
+      <Text mt='32px' fontSize='20px' lineHeight='32px' letterSpacing='4px'>
         Liteflix The Movie fue correctamente subida.
       </Text>
       <CustomButton
-        title="Ir a Home"
-        background="#fff"
-        border="1px solid rgba(255, 255, 255, 0.5)"
-        _hover={{ background: "#242424", color: "#fff" }}
-        margin={isNavbar ? "48px 0 0" : "100px 0 0"}
+        title='Ir a Home'
+        background='#fff'
+        border='1px solid rgba(255, 255, 255, 0.5)'
+        _hover={{ background: '#242424', color: '#fff' }}
+        margin={isNavbar ? '48px 0 0' : '100px 0 0'}
         disabled={isDisabled}
-        color="#242424"
+        color='#242424'
         onClick={onClose}
       />
     </Box>
   );
 
   const renderForm = () => (
-    <FormControl textAlign="center">
+    <FormControl textAlign='center'>
       {progress > 0 ? (
         <>
           {isError ? (
             <>
-              {progressText(
-                "¡Error! No se pudo cargar la pelicula",
-                null,
-                "left",
-                null,
-                "10px"
-              )}
-              <Progress colorScheme="red" value={progress} />
+              {progressText('¡Error! No se pudo cargar la pelicula', null, 'left', null, '10px')}
+              <Progress colorScheme='red' value={progress} />
               <Text
-                color="#fff"
-                textAlign="right"
-                fontSize="18px"
-                fontWeight="normal"
-                mt="10px"
-                lineHeight="21px"
-                letterSpacing="4px"
+                color='#fff'
+                textAlign='right'
+                fontSize='18px'
+                fontWeight='normal'
+                mt='10px'
+                lineHeight='21px'
+                letterSpacing='4px'
               >
                 Reintentar
               </Text>
             </>
           ) : (
             <>
-              {progressText(`${progress}% Cargado`, null, "left", null, "10px")}
-              <Progress colorScheme="teal" value={progress} />
+              {progressText(`${progress}% Cargado`, null, 'left', null, '10px')}
+              <Progress colorScheme='teal' value={progress} />
               {progress === 100
-                ? progressText("Listo!", "#64EEBC", "right", "10px")
-                : progressText("Cancelar", null, "right", null, "10px")}
+                ? progressText('Listo!', '#64EEBC', 'right', '10px')
+                : progressText('Cancelar', null, 'right', null, '10px')}
             </>
           )}
         </>
       ) : (
         <ContainerInput {...getRootProps()}>
           <Input
-            type="file"
-            id="movie"
-            defaultValue=""
-            accept="image/png,image/jpeg"
+            type='file'
+            id='movie'
+            defaultValue=''
+            accept='image/png,image/jpeg'
             onChange={(e) => handleImage(e.target.files[0])}
             {...getInputProps()}
           />
-          <Icon as={AiOutlinePaperClip} height="16px" mr="5px" />
+          <Icon as={AiOutlinePaperClip} height='16px' mr='5px' />
           {isNavbar ? (
             <Text>Agregá un archivo o arrastralo y soltalo aquí</Text>
           ) : (
@@ -228,50 +219,48 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
       )}
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
         }}
       >
         <Input
           value={formValues.original_title}
-          placeholder="Título"
-          type="text"
-          border="none"
-          background="transparent"
-          fontSize="16px"
-          mt={isNavbar ? "25px" : "94px"}
-          letterSpacing="4px"
-          lineHeight="16px"
-          textAlign="center"
-          variant="unstyled"
-          width="248px"
-          p="16px"
-          borderRadius="none"
-          borderBottom="solid 1px #fff"
-          onChange={(e) =>
-            setFormValues({ ...formValues, original_title: e.target.value })
-          }
+          placeholder='Título'
+          type='text'
+          border='none'
+          background='transparent'
+          fontSize='16px'
+          mt={isNavbar ? '25px' : '94px'}
+          letterSpacing='4px'
+          lineHeight='16px'
+          textAlign='center'
+          variant='unstyled'
+          width='248px'
+          p='16px'
+          borderRadius='none'
+          borderBottom='solid 1px #fff'
+          onChange={(e) => setFormValues({ ...formValues, original_title: e.target.value })}
         />
         <CustomButton
-          title="Subir Película"
-          type="submit"
-          background="#fff"
-          border="1px solid rgba(255, 255, 255, 0.5)"
-          _hover={{ background: "#242424" }}
-          margin={isNavbar ? "48px 0 0" : "100px 0 0"}
+          title='Subir Película'
+          type='submit'
+          background='#fff'
+          border='1px solid rgba(255, 255, 255, 0.5)'
+          _hover={{ background: '#242424' }}
+          margin={isNavbar ? '48px 0 0' : '100px 0 0'}
           disabled={isDisabled}
           onClick={(e) => onSubmit(e)}
-          color="#242424"
+          color='#242424'
         />
         {!isNavbar && (
           <CustomButton
-            title="Salir"
+            title='Salir'
             onClick={() => onClose()}
-            background="rgba(36, 36, 36, 0.5)"
-            border="1px solid rgba(255, 255, 255, 0.5)"
-            _hover={{ background: "#242424" }}
-            margin="24px 0 0"
+            background='rgba(36, 36, 36, 0.5)'
+            border='1px solid rgba(255, 255, 255, 0.5)'
+            _hover={{ background: '#242424' }}
+            margin='24px 0 0'
           />
         )}
       </div>

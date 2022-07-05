@@ -28,8 +28,12 @@ const CardMovie = ({ movie, categoryId, defaultCategoryId }) => {
         <DetailsTitle>{original_title}</DetailsTitle>
       </DetailsHeader>
       <DetailsFooter>
-        <Icon as={IoStarSharp} height='14px' width='14px' color='#64EEBC' />
-        {vote_average && <RangeValoration>{vote_average.toString().replace('.', ',')}</RangeValoration>}
+        {vote_average && (
+          <>
+            <Icon as={IoStarSharp} height='14px' width='14px' color='#64EEBC' />
+            <RangeValoration>{vote_average.toString().replace('.', ',')}</RangeValoration>
+          </>
+        )}
         {release_date && <ReleaseDate>{dayjs(release_date).format('YYYY')}</ReleaseDate>}
       </DetailsFooter>
     </>

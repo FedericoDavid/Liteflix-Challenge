@@ -66,9 +66,9 @@ const SideMovies = ({ popularMovie, setPopularMovie, myMovies }) => {
       <SelectCategory />
       {categoryId === defaultCategoryId ? (
         <>
-          {popularMovie?.map((movie) => (
+          {popularMovie?.map((movie, idx) => (
             <CardMovie
-              key={movie.id}
+              key={idx}
               movie={movie}
               categoryId={categoryId}
               defaultCategoryId={defaultCategoryId}
@@ -76,16 +76,18 @@ const SideMovies = ({ popularMovie, setPopularMovie, myMovies }) => {
           ))}
         </>
       ) : (
-        <>
-          {myMovies?.map((movie) => (
-            <CardMovie
-              key={movie.id}
-              movie={movie}
-              categoryId={categoryId}
-              defaultCategoryId={defaultCategoryId}
-            />
-          ))}
-        </>
+        myMovies.length > 0 && (
+          <>
+            {myMovies?.map((movie, idx) => (
+              <CardMovie
+                key={idx}
+                movie={movie}
+                categoryId={categoryId}
+                defaultCategoryId={defaultCategoryId}
+              />
+            ))}
+          </>
+        )
       )}
     </Container>
   );

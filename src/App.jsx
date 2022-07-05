@@ -4,17 +4,13 @@ import Home from './pages/Home';
 
 const App = () => {
   const [popularMovie, setPopularMovie] = useState([]);
-  const [myMovies, setMyMovies] = useState([]);
+  const [myMovies, setMyMovies] = useState();
 
   useEffect(() => {
-    const storageMovies = JSON.parse(localStorage.getItem("OwnMovies")) ?? [];
+    const storageMovie = JSON.parse(localStorage.getItem('OwnMovies')) ?? [];
 
-    setMyMovies(storageMovies);
+    setMyMovies([storageMovie]);
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("OwnMovies", JSON.stringify(myMovies));
-  }, [myMovies]);
 
   return (
     <Home
