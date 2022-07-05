@@ -57,7 +57,7 @@ const Home = ({ popularMovie, setPopularMovie, setMyMovies, myMovies }) => {
 
   return (
     <Container style={getBackgroundStyle()}>
-      <Navbar setMyMovies={setMyMovies} myMovies={myMovies} />
+      <Navbar myMovies={myMovies} />
       <HeroContainer>
         <Hero title={topMovie?.original_title} />
         <SideMovies popularMovie={popularMovie} setPopularMovie={setPopularMovie} myMovies={myMovies} />

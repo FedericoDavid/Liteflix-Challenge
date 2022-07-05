@@ -9,7 +9,7 @@ import profilePicture from '../../assets/default-profile-picture.png';
 import MenuDrawer from '../MenuDrawer';
 import FormModal from '../FormModal';
 
-const Navbar = ({ myMovies, setMyMovies }) => {
+const Navbar = ({ myMovies }) => {
   const [isMobile] = useMediaQuery('(min-width: 768px)');
 
   const btnRef = useRef();
@@ -17,11 +17,7 @@ const Navbar = ({ myMovies, setMyMovies }) => {
   return (
     <Container>
       <LeftContainer>
-        {!isMobile ? (
-          <MenuDrawer ref={btnRef} />
-        ) : (
-          <FormModal isNavbar myMovies={myMovies} setMyMovies={setMyMovies} />
-        )}
+        {!isMobile ? <MenuDrawer ref={btnRef} /> : <FormModal isNavbar myMovies={myMovies} />}
         <Logo />
       </LeftContainer>
       <RightContainer>

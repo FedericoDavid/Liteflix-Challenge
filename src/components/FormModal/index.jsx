@@ -25,7 +25,7 @@ import CustomButton from '../Button';
 import { ContainerInput } from './styles/formModal';
 import Logo from '../Logo';
 
-const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
+const FormModal = ({ isNavbar }) => {
   const [progress, setProgress] = useState(0);
   const [onSuccess, setOnSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -88,20 +88,15 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
 
     if (original_title === '' || backdrop_path === '') return;
 
-    console.log(original_title, backdrop_path, 'ot bp');
-
     const movie = {
       original_title,
       backdrop_path,
     };
 
-    console.log(myMovies);
     movie.id = generateID();
     localStorage.setItem('OwnMovies', JSON.stringify(movie));
 
     setOnSuccess(true);
-
-    console.log(myMovies, movie, 'success');
   };
 
   const progressText = (label, color, align, top, bottom) => (
@@ -149,8 +144,8 @@ const FormModal = ({ isNavbar, myMovies, setMyMovies }) => {
 
   const renderSuccessMessage = () => (
     <Box textAlign='center'>
-      {isNavbar && <Logo />}
-      <Text mt='190px' fontSize='24px' lineHeight='26px' letterSpacing='4px'>
+      {isNavbar && <Logo margin='64px 0 0 0' />}
+      <Text mt={isNavbar ? '70px' : '190px'} fontSize='24px' lineHeight='26px' letterSpacing='4px'>
         ¡Felicitaciones!
       </Text>
       <Text mt='32px' fontSize='20px' lineHeight='32px' letterSpacing='4px'>
