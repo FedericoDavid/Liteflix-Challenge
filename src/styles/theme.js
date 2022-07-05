@@ -7,11 +7,15 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      // styles for the `body`
+      '@media screen and (min-width: 768px)': {
+        body: {
+          overflow: 'hidden',
+        },
+      },
       body: {
-        bg: "#000",
+        bg: '#000',
         margin: 0,
-        color: "white",
+        color: 'white',
       },
     },
   },

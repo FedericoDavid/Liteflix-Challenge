@@ -5,7 +5,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import { Container, SelectContainer } from './styles/sidemovies';
 import CardMovie from '../CardMovie';
 
-const SideMovies = ({ popularMovie, setPopularMovie }) => {
+const SideMovies = ({ popularMovie, setPopularMovie, myMovies }) => {
   const defaultCategoryId = 1;
 
   const [categoryId, setCategoryId] = useState(defaultCategoryId);
@@ -19,8 +19,7 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
   const getPopularMovies = async () => {
     setIsLoading(true);
 
-    const url =
-      "https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20";
+    const url = 'https://api.themoviedb.org/3/movie/popular?api_key=6f26fd536dd6192ec8a57e94141f8b20';
 
     if (categoryId === defaultCategoryId) {
       const res = await fetch(url);
@@ -40,23 +39,19 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
 
   const SelectCategory = () => (
     <SelectContainer>
-      <Text fontSize="20px" paddingRight="10px">
+      <Text fontSize='20px' paddingRight='10px'>
         Ver:
       </Text>
       <Select
         icon={<FiChevronDown />}
-        variant="unstyled"
-        fontSize="20px"
-        transform="uppercase"
+        variant='unstyled'
+        fontSize='20px'
+        transform='uppercase'
         value={categoryId}
-        onChange={({ value }) => setCategoryId(value)}
+        onChange={(e) => setCategoryId(Number(e.target.value))}
       >
         {categoryOptions.map((c) => (
-          <option
-            style={{ background: "#242424", border: "none" }}
-            key={c.id}
-            value={c.id}
-          >
+          <option style={{ background: '#242424', border: 'none' }} key={c.id} value={c.id}>
             {c.name}
           </option>
         ))}
@@ -69,16 +64,29 @@ const SideMovies = ({ popularMovie, setPopularMovie }) => {
   return (
     <Container>
       <SelectCategory />
-      <>
-        {popularMovie?.map((movie) => (
-          <CardMovie
-            key={movie.id}
-            movie={movie}
-            categoryId={categoryId}
-            defaultCategoryId={defaultCategoryId}
-          />
-        ))}
-      </>
+      {categoryId === defaultCategoryId ? (
+        <>
+          {popularMovie?.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              movie={movie}
+              categoryId={categoryId}
+              defaultCategoryId={defaultCategoryId}
+            />
+          ))}
+        </>
+      ) : (
+        <>
+          {myMovies?.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              movie={movie}
+              categoryId={categoryId}
+              defaultCategoryId={defaultCategoryId}
+            />
+          ))}
+        </>
+      )}
     </Container>
   );
 };

@@ -8,6 +8,7 @@ export const Container = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
+  min-height: 100vh;
 
   @media (min-width: 768px) {
     background-size: cover;
