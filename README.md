@@ -9,3 +9,7 @@
 ``npm install``
 
 ``npm run dev``
+
+*Deployed version:* 
+
+https://liteflix-challenge-nine.vercel.app/
